@@ -21,7 +21,7 @@
   networking.wireless.userControlled.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/kolkata";
+  time.timeZone = "Asia/Kolkata";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -74,6 +74,10 @@
       pkgs.mate.caja
       pkgs.fish
       pkgs.gh
+      pkgs.teams
+      pkgs.feh
+      pkgs.htop-vim
+      pkgs.code-minimap
     ];
   };
 
@@ -98,6 +102,9 @@
     pkgs.pavucontrol
     pkgs.brave
     pkgs.spotify
+    pkgs.stow
+    pkgs.picom
+    pkgs.google-cloud-sdk
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
