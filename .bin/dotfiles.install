@@ -38,5 +38,5 @@ else
    # Run stow to ensure all new dotfiles are linked
    stow .
    sudo ln -s ~/.dotfiles/.config/nixos /etc
-   cd tmux && stow .
+   # cd tmux && stow .
 fi
