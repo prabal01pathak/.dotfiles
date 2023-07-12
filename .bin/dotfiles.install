@@ -37,4 +37,6 @@ if [[ ! -z $unmerged_files ]]; then
 else
    # Run stow to ensure all new dotfiles are linked
    stow .
+   ln -s ~/.dotfiles/.config/nixos/ /etc/nixos/
+   cd tmux && stow .
 fi
