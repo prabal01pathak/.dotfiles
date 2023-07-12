@@ -1,0 +1,4 @@
+# Neovim Configurations 
+** language **
+- lua
+
