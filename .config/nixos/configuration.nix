@@ -77,7 +77,6 @@
       pkgs.teams
       pkgs.feh
       pkgs.htop-vim
-      pkgs.code-minimap
     ];
   };
 
@@ -105,6 +104,7 @@
     pkgs.stow
     pkgs.picom
     pkgs.google-cloud-sdk
+    pkgs.fzf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -153,7 +153,7 @@
     extraPackages = with pkgs; [
  	dmenu
 	i3status
-	i3lock
+	i3lock-color
 	i3blocks
    ];
   };

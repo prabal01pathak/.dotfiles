@@ -144,7 +144,7 @@ bindsym Mod1+minus scratchpad show
 set $ws1 "1:  Terminal"
 set $ws2 "2:  Firefox"
 set $ws3 "3:  Spotify"
-set $ws4 "4:  Teams"
+set $ws4 "4:  Teams"
 set $ws5 "5:  Vimb"
 set $ws6 "6:  Shutter"
 set $ws7 "7"
@@ -266,3 +266,4 @@ bindsym Ctrl+Mod1+M exec "amixer set Capture cap"
 bindsym $mod+c exec "CM_ONESHOT=1 clipmenud"
 bindsym $mod+v exec clipmenu
 exec_always --no-startup-id picom -b
+# exec_always --no-startup-id sudo modprobe -r uvcvideo
