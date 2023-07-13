@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
         require('smoothcursor').setup()
       end
     }
+    use "christoomey/vim-tmux-navigator"
     use "wfxr/minimap.vim"
     use("vim-airline/vim-airline")
     use('ryanoasis/vim-devicons')
