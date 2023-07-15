@@ -77,6 +77,9 @@
       pkgs.teams
       pkgs.feh
       pkgs.htop-vim
+      pkgs.remmina
+      pkgs.anydesk
+      pkgs.discord
     ];
   };
 
@@ -105,6 +108,10 @@
     pkgs.picom
     pkgs.google-cloud-sdk
     pkgs.fzf
+    pkgs.code-minimap
+    pkgs.python311
+    pkgs.obs-studio
+    pkgs.rustup
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

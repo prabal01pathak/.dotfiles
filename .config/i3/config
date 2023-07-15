@@ -235,7 +235,7 @@ exec_always xinput set-prop 10 278 1
 
 
 # Color shemes for windows 
-set $bgcolor    #523d64
+set $bgcolor    #211e1e
 set $in-bgcolor #363636
 set $text       #ffffff
 set $u-bgcolor  #ff0000
@@ -266,4 +266,5 @@ bindsym Ctrl+Mod1+M exec "amixer set Capture cap"
 bindsym $mod+c exec "CM_ONESHOT=1 clipmenud"
 bindsym $mod+v exec clipmenu
 exec_always --no-startup-id picom -b
+exec_always --no-startup-id copyq
 # exec_always --no-startup-id sudo modprobe -r uvcvideo
