@@ -4,7 +4,22 @@
 
 { config, pkgs, ... }:
 
+let
+  my-python-packages = ps: with ps; [
+    cairocffi
+    cffi
+    xcffib
+    dbus-next
+    requests
+    pip
+    ipython
+    black
+    qtile-extras
+  ];
+in
+
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -43,14 +58,17 @@
 
   # Configure keymap in X11
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
+  services.xserver.xkbOptions = "eurosign:e,caps:shift,alt_r:control_r,end:shift_r";
+  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.opengl.driSupport = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
@@ -70,16 +88,22 @@
       fish
       ranger
       packer
-      pkgs.input-remapper
-      pkgs.mate.caja
-      pkgs.fish
-      pkgs.gh
-      pkgs.teams
-      pkgs.feh
-      pkgs.htop-vim
-      pkgs.remmina
-      pkgs.anydesk
-      pkgs.discord
+      input-remapper
+      fish
+      gh
+      teams
+      feh
+      htop-vim
+      discord
+      teamviewer
+      poetry
+      monitor
+      fd
+      ruff
+      mypy
+      sxhkd
+      rofi
+      krusader
     ];
   };
 
@@ -89,33 +113,37 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  (python3.withPackages my-python-packages)
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     lxappearance
     clipmenu
     git
-    pkgs.ripgrep
-    pkgs.gcc
-    pkgs.nodejs_20
-    pkgs.nodePackages_latest.pnpm
-    pkgs.copyq
-    pkgs.pulseaudio
-    pkgs.tmux
-    pkgs.pavucontrol
-    pkgs.brave
-    pkgs.spotify
-    pkgs.stow
-    pkgs.picom
-    pkgs.google-cloud-sdk
-    pkgs.fzf
-    pkgs.code-minimap
-    pkgs.python311
-    pkgs.obs-studio
-    pkgs.rustup
+    ripgrep
+    gcc
+    nodejs_20
+    nodePackages_latest.pnpm
+    copyq
+    pulseaudio
+    tmux
+    pavucontrol
+    brave
+    spotify
+    stow
+    picom
+    google-cloud-sdk
+    fzf
+    code-minimap
+    python311
+    obs-studio
+    rustup
+    xclip
+    neofetch
+    python310Packages.qtile
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
@@ -152,24 +180,33 @@
   desktopManager = {
     xterm.enable = false;
   };
-  displayManager = {
-    defaultSession = "none+i3";
-  };
+  # displayManager = {
+  #   defaultSession = "none+i3";
+  # };
   windowManager.i3 =  {
     enable = true;
     extraPackages = with pkgs; [
- 	dmenu
-	i3status
-	i3lock-color
-	i3blocks
-   ];
-  };
+         dmenu
+         i3status
+         i3lock-color
+         i3blocks
+    ];
+   };
  };
- nix.settings.experimental-features = ["nix-command" "flakes"];
- fonts.fonts = with pkgs; [
-  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-];
-nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  fonts.fonts = with pkgs; [
+   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
+  nixpkgs.config.allowUnfree = true;
+  services.picom.enable = true;
+  programs.hyprland = {
+      enable = true;
+      xwayland = {
+          enable = true;
+          hidpi = false;
+   };
+  };
+  services.xserver.windowManager.qtile.enable = true;
 
   # xmodmap key mappings
   # services.xserver.displayManager.sessionCommands = ${pkgs.xorg.xmodmap}/bin/xmodmap "${pkgs.writeText "xkb-layout" ''
