@@ -62,6 +62,7 @@ in
   
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.spotifyd.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -103,7 +104,10 @@ in
       mypy
       sxhkd
       rofi
+      wofi
       krusader
+      waybar
+      eww-wayland
     ];
   };
 
@@ -140,9 +144,23 @@ in
     xclip
     neofetch
     python310Packages.qtile
+    spotify-tui
+    spotifyd
+    polybar
+    brightnessctl
+    zsh
+    oh-my-zsh
+    lazygit
+    remmina
+    stylua
+    deno
+    electron
+    gitui
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -195,7 +213,8 @@ in
  };
   nix.settings.experimental-features = ["nix-command" "flakes"];
   fonts.fonts = with pkgs; [
-   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+   # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+   nerdfonts
   ];
   nixpkgs.config.allowUnfree = true;
   services.picom.enable = true;

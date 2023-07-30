@@ -14,3 +14,5 @@ _book
 *.epub
 *.mobi
 *.pdf
+.config/ranger/__pycache__
+.config/ranger/plugins/__pycache__
