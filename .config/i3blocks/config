@@ -1,0 +1,4 @@
+[mic_status]
+command=./script.sh
+interval=10
+label=Mic:

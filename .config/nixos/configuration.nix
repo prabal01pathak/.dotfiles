@@ -15,6 +15,9 @@ let
     ipython
     black
     qtile-extras
+    pygame
+    pandas
+    xmlsec
   ];
 in
 
@@ -108,6 +111,13 @@ in
       krusader
       waybar
       eww-wayland
+      ngrok
+      nodePackages_latest.serve
+      xsel
+      sonic-pi
+      virtualbox
+      qemu
+      xorg.xbacklight
     ];
   };
 
@@ -156,6 +166,19 @@ in
     deno
     electron
     gitui
+    libstdcxx5
+    vlc
+    vscode
+    libreoffice
+    nim
+    nimlsp
+    gimp
+    libsForQt5.spectacle
+    libxml2
+    azure-cli
+    inetutils
+    nmap
+    dunst
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

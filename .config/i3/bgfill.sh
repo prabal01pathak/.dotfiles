@@ -11,7 +11,7 @@ BACKGROUND_COMMAND="feh --bg-fill "       # The command that will be used to set
 IMAGE_SAVE_DIR="photo.jpg"  # Directory to save the images to
 
 #Do not change unless you need to
-UNSPLASH_URL="https://source.unsplash.com/random?night&size=1920x1080"
+UNSPLASH_URL="https://source.unsplash.com/random?night+city&size=1920x1080"
 
 # Daemon Settings (only modify if you are using unspla.sh as a daemon)
 UPDATE_INTERVAL=21600                     # How long to wait before changing the picture (seconds)
